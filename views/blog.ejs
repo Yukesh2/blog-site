@@ -1,0 +1,25 @@
+<%- include('header'); -%>
+<body>
+    <div class="nav-bar">
+        <li class="first">Post Your Blog here</li>
+    </div>
+    <div class="container2">
+        <form method="POST" action="/post" class="blog"> <!-- action must be route name to post in server-->
+            <h1 class="heading-text">
+                Title Here
+            </h1>
+            <input type="text" name="title" placeholder="enter your title here" class="title-text">
+              <h1 class="heading-text1">
+               Blog here
+              </h1>
+              <textarea type="text" name="newitem" class="post-blog"></textarea>
+              <button type="submit" name="btn-submit" value="hello" class="btn-primary">Submit</button>
+    
+        </form>
+       
+
+    </div>
+
+   
+</body>
+</html>

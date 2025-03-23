@@ -1,0 +1,44 @@
+<%- include('header'); -%>
+<body>
+    <div class="nav-bar">
+        <li class="first">Blogs</li>
+    </div>
+  
+  
+    <% for(let i = 0; i < title.length; i++) { %>
+        <p class="first-text">
+            <h1 class="text-white"><%= title[i] %></h1>
+        </p>
+        <div class="text-conatiner">
+            <div class="text-container">
+                <span class="short-text"><%= blog[i].substring(0, 100) %>...</span>
+                <span class="more-text" style="display: none;"><%= blog[i] %></span>
+                <a href="/post/<%= i %>" target="_blank">
+                    <button class="toggle-btn">Read More</button>
+            </a>
+                
+            </div>
+        </div>
+    <% } %>
+</body>
+<script>
+    // Select all toggle buttons
+    document.querySelectorAll('.toggle-btn').forEach((btn, index) => {
+        btn.addEventListener('click', function () {
+            const parent = btn.closest('.text-container');
+            const shortText = parent.querySelector('.short-text');
+            const moreText = parent.querySelector('.more-text');
+            
+            // Toggle the visibility
+            if (moreText.style.display === 'none') {
+                moreText.style.display = 'inline';
+                shortText.style.display = 'none';
+                btn.innerText = 'Read Less';
+            } else {
+                moreText.style.display = 'none';
+                shortText.style.display = 'inline';
+                btn.innerText = 'Read More';
+            }
+        });
+    });
+</script>
